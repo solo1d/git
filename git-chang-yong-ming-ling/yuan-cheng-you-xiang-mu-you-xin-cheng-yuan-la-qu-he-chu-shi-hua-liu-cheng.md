@@ -1,0 +1,58 @@
+# 远程有项目,有新成员拉取和初始化流程:
+
+## 远程有项目, 有新成员拉取和初始化流程:
+
+```bash
+需要在远程有 仓库 ,也行是github 也许是gitlab
+  #  注意当使用了 submodule 之后, 新来的成员的新git仓库的初始化方式会有变化:
+
+  本地操作:
+     首先让新成员在本地生成公匙和私匙. 
+        $ssh-keygen -t rsa -C "你的邮箱" -f ~/.ssh/想要生成公匙和私匙的文件名名字 
+        
+     将私匙添加到本地的私匙列表中. 
+        $ssh-add -K ~/.ssh/私匙的文件名名字  
+                
+  网页(远程)操作:
+        然后再将这个新成员的公匙 添加到项目中(网页操作).
+            接着是新成员本地仓库初始化操作:
+               $git clone git@192.168.2.3:solo1d/mytest.github  mygit_work
+                     # 将远程的 solo1d 用户的  仓库mytest  项目拉取下来.
+               $git config --local user.name  '新成员名字'
+               $git config --local user.email '新成员邮箱'
+                     #初始化完成了. 可以操作了.
+
+# 如果远程分支多, 可以使用下面这个命令 创建本地的分支 来对应远程分支.这样就可以和远程分支以及内容保持一致.
+        $git checkout -b develop origin/develop 
+              # 在本地新建一个develop分支, 它要跟远程分支 origin/develop 保持对应关系. 
+              # 这里假设远程的 develop分支就是工作分支 ,而不是master
+```
+
+## 远程项目包含 submodules 时的 本地初始化流程
+
+```bash
+   # 如果远程库中包含了 submodules 的话就需要在复制后重新初始化 submodules 和更新. 
+   # 注意当使用了 submodule 之后, 新来的成员的新git仓库的初始化方式会有变化:
+    使用了 submodule 之后的 第一种初始化方法:
+      $git clone git@github.com:solo1d/git_parent.git  git_parent2
+        # 复制远程版本库 solo1d用户的 git_parent项目,到 git_parent2这个新目录(执行前不能存在).
+        # 但没有依赖项目.
+      $cd  git_parent2     #来到这个新目录
+      $git submodule init
+        #初始化 submodule
+      $git submodule update --recursive
+        #执行submodule 递归更新.  这个时候就可以了.已经把所有内容都拉取回来了.
+      $cd mymodule && git checkout master
+        #进入依赖项目文件夹, 并且进入 master这个分支. 如果不进入那么会在一个 sha1 值的分支上.
+    
+    使用了 submodule 之后的 第一种初始化方法: 
+      $git clone git@github.com:solo1d/git_parent.git git_parent3 --recursive 
+          #复制远程版本库, 并且将依赖的项目也一并复制过来.
+         $cd mymodule && git checkout master
+             # 顺便切换一下依赖项目所在分支.
+```
+
+
+
+
+

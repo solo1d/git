@@ -1,2 +1,2 @@
-# git使用笔记和gitlab搭建
+# git和gitlab搭建
 
