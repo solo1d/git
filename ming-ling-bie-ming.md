@@ -1,0 +1,14 @@
+# 命令 别名
+
+```bash
+别名
+    $git config --global alias.st  status      
+        #将 ststus 应用于别名st, 作用域是用户级 ( >sys , <local仓库级), 会写入配置文件 ~/.gitconfig中
+        # 只可以将 git *** 之类后面的*替换掉, 不可以替换外部命令, 如果要替换 就执行下面的.
+            $git  st    // 这是替换之后的执行样子
+            
+    $git config --global alias.ui   ’!gitk‘
+        #将 ui 应用于外部命令 gitk , 前面的! 表示这是外部命令, 而git命令则不需要.
+            $git ui     // 这个替换之后会弹出ui界面,  跟$gitk 命令相同.
+```
+

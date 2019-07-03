@@ -33,7 +33,7 @@
 ```bash
    # 如果远程库中包含了 submodules 的话就需要在复制后重新初始化 submodules 和更新. 
    # 注意当使用了 submodule 之后, 新来的成员的新git仓库的初始化方式会有变化:
-    使用了 submodule 之后的 第一种初始化方法:
+使用了 submodule 之后的 第一种初始化方法:
       $git clone git@github.com:solo1d/git_parent.git  git_parent2
         # 复制远程版本库 solo1d用户的 git_parent项目,到 git_parent2这个新目录(执行前不能存在).
         # 但没有依赖项目.
@@ -45,7 +45,7 @@
       $cd mymodule && git checkout master
         #进入依赖项目文件夹, 并且进入 master这个分支. 如果不进入那么会在一个 sha1 值的分支上.
     
-    使用了 submodule 之后的 第一种初始化方法: 
+使用了 submodule 之后的 第二初始化方法: 
       $git clone git@github.com:solo1d/git_parent.git git_parent3 --recursive 
           #复制远程版本库, 并且将依赖的项目也一并复制过来.
          $cd mymodule && git checkout master
