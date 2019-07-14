@@ -38,6 +38,17 @@ gitlab 安装 官网: [https://about.gitlab.com/install](https://about.gitlab.co
     上面全都完成后,进入这个网页来进行配置和root密码设置,添加用户和权限之类的.
         http://服务器的ip
             #  第一次进入会直接提示让你输入两次密码.  这个是root密码.
+            
+gitlab 服务开启 重启 关闭命令
+        $sudo gitlab-ctl start
+        $sudo gitlab-ctl restart
+        $sudo gitlab-ctl stop
+
+gitlab 服务 关闭 开机自动启动  
+        $sudo systemctl disable gitlab-runsvdir.service
+
+gitlab 服务 开启 开机自动启动 
+        $sudo systemctl enable gitlab-runsvdir.service
 ```
 
 ```text
