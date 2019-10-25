@@ -33,4 +33,5 @@
 * [subtree  项目包含](subtree  项目包含.md)
 * [git 裸库](git 裸库.md)
 * [gitlab 搭建](gitlab 搭建.md)
+* [ssh配置](ssh配置.md)
 
