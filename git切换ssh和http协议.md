@@ -1,6 +1,6 @@
 切换协议：
 
-### 查看当前remote
+### 查看当前协议
 
 ```bash 
 git remote -v
@@ -20,7 +20,7 @@ git remote -v
 
 ```bash
 #切换到 ssh 之后,需要删除 http协议:
-	git remote set-url --delete origin  https://github.com/solo1d/Linux.git
+	git remote set-url --delete origin  https://github.com/solo1d/Linux
 
 #切换到 http 之后,需要删除 ssh协议:
 	git remote set-url --delete origin  origin git@github.com:solo1d/Linux.git
